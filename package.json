@@ -1,0 +1,28 @@
+{
+  "name": "protease",
+  "version": "0.0.0",
+  "description": "Prototype chain with lookup.",
+  "main": "protease.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volkovasystems/protease.git"
+  },
+  "keywords": [
+    "prototype",
+    "chain",
+    "protease"
+  ],
+  "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/volkovasystems/protease/issues"
+  },
+  "homepage": "https://github.com/volkovasystems/protease#readme",
+  "dependencies": {
+    "falzy": "0.0.1",
+    "harden": "^0.3.5"
+  }
+}
