@@ -52,7 +52,8 @@
 	@include:
 		{
 			"falzy": "falzy",
-			"harden": "harden"
+			"harden": "harden",
+			"protype": "protype"
 		}
 	@end-include
 */
@@ -60,18 +61,19 @@
 if( typeof require == "function" ){
 	var falzy = require( "falzy" );
 	var harden = require( "harden" );
+	var protype = require( "protype" );
 }
 
-if( typeof window != "undefined" &&
-	!( "harden" in window ) )
-{
+if( typeof window != "undefined" && !( "falzy" in window ) ){
+	throw new Error( "falzy is not defined" );
+}
+
+if( typeof window != "undefined" && !( "harden" in window ) ){
 	throw new Error( "harden is not defined" );
 }
 
-if( typeof window != "undefined" &&
-	!( "falzy" in window ) )
-{
-	throw new Error( "falzy is not defined" );
+if( typeof window != "undefined" && !( "protype" in window ) ){
+	throw new Error( "protype is not defined" );
 }
 
 var protease = function protease( entity ){
@@ -86,17 +88,18 @@ var protease = function protease( entity ){
 		@end-meta-configuration
 	*/
 
-	if( typeof entity != "object" && typeof entity != "function" ){
+	let entityType = protype( entity );
+	if( !entityType.OBJECT && !entityType.FUNCTION ){
 		throw new Error( "invalid entity" );
 	}
 
 	let name = "";
 	let prototype = null;
-	if( typeof entity == "function" ){
+	if( entityType.FUNCTION ){
 		name = entity.name;
 		prototype = entity.prototype;
 
-	}else if( typeof entity == "object" ){
+	}else if( entityType.OBJECT ){
 		name = entity.constructor.name;
 		prototype = Object.getPrototypeOf( entity );
 	}
@@ -105,27 +108,24 @@ var protease = function protease( entity ){
 		throw new Error( "cannot extract initial chain name" );
 	}
 
-	if( typeof prototype != "object" ){
+	if( !protype( prototype, OBJECT ) ){
 		throw new Error( "cannot extract initial prototype" );
 	}
 
-	let chain = [ prototype ];
-	harden( name, prototype, chain );
+	let chain = harden( name, prototype, [ prototype ] );
 
 	while( prototype = Object.getPrototypeOf( prototype ) ){
 		name = prototype.constructor.name;
 
 		if( !( name in chain ) ){
 			chain.push( prototype );
-			harden( name, prototype, chain );
+			chain.harden( name, prototype );
 		}
 	}
 
 	return chain;
 };
 
-if( typeof module != "undefined" &&
-	typeof module.exports != "undefined" )
-{
+if( typeof module != "undefined" && typeof module.exports != "undefined" ){
 	module.exports = protease;
 }

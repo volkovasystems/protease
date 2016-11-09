@@ -1,6 +1,6 @@
 {
   "name": "protease",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Prototype chain with lookup.",
   "main": "protease.js",
   "scripts": {
@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/volkovasystems/protease#readme",
   "dependencies": {
-    "falzy": "0.0.1",
-    "harden": "^0.3.5"
+    "falzy": "^0.3.0",
+    "harden": "^0.6.0",
+    "protype": "^0.2.0"
   }
 }

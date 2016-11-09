@@ -1,0 +1,66 @@
+{
+  "name": "protease",
+  "version": "0.1.0",
+  "dependencies": {
+    "falzy": {
+      "version": "0.3.0",
+      "from": "falzy@latest",
+      "resolved": "https://registry.npmjs.org/falzy/-/falzy-0.3.0.tgz",
+      "dependencies": {
+        "protype": {
+          "version": "0.2.0",
+          "from": "protype@latest",
+          "resolved": "https://registry.npmjs.org/protype/-/protype-0.2.0.tgz",
+          "dependencies": {
+            "cemento": {
+              "version": "0.1.0",
+              "from": "cemento@latest",
+              "resolved": "https://registry.npmjs.org/cemento/-/cemento-0.1.0.tgz",
+              "dependencies": {
+                "harden": {
+                  "version": "0.6.0",
+                  "from": "harden@latest",
+                  "resolved": "https://registry.npmjs.org/harden/-/harden-0.6.0.tgz"
+                }
+              }
+            },
+            "harden": {
+              "version": "0.6.0",
+              "from": "harden@latest",
+              "resolved": "https://registry.npmjs.org/harden/-/harden-0.6.0.tgz"
+            }
+          }
+        }
+      }
+    },
+    "harden": {
+      "version": "0.6.0",
+      "from": "harden@latest",
+      "resolved": "https://registry.npmjs.org/harden/-/harden-0.6.0.tgz"
+    },
+    "protype": {
+      "version": "0.2.0",
+      "from": "protype@latest",
+      "resolved": "https://registry.npmjs.org/protype/-/protype-0.2.0.tgz",
+      "dependencies": {
+        "cemento": {
+          "version": "0.1.0",
+          "from": "cemento@latest",
+          "resolved": "https://registry.npmjs.org/cemento/-/cemento-0.1.0.tgz",
+          "dependencies": {
+            "harden": {
+              "version": "0.6.0",
+              "from": "harden@latest",
+              "resolved": "https://registry.npmjs.org/harden/-/harden-0.6.0.tgz"
+            }
+          }
+        },
+        "harden": {
+          "version": "0.6.0",
+          "from": "harden@latest",
+          "resolved": "https://registry.npmjs.org/harden/-/harden-0.6.0.tgz"
+        }
+      }
+    }
+  }
+}
