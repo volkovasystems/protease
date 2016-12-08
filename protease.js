@@ -43,10 +43,6 @@
 
 	@module-documentation:
 		Prototype chain with lookup.
-
-		This will follow the prototype chain through the parent property.
-
-		Override the follow up property by passing a link.
 	@end-module-documentation
 
 	@include:
@@ -58,25 +54,11 @@
 	@end-include
 */
 
-if( typeof require == "function" ){
-	var falzy = require( "falzy" );
-	var harden = require( "harden" );
-	var protype = require( "protype" );
-}
+const falzy = require( "falzy" );
+const harden = require( "harden" );
+const protype = require( "protype" );
 
-if( typeof window != "undefined" && !( "falzy" in window ) ){
-	throw new Error( "falzy is not defined" );
-}
-
-if( typeof window != "undefined" && !( "harden" in window ) ){
-	throw new Error( "harden is not defined" );
-}
-
-if( typeof window != "undefined" && !( "protype" in window ) ){
-	throw new Error( "protype is not defined" );
-}
-
-var protease = function protease( entity ){
+const protease = function protease( entity ){
 	/*;
 		@meta-configuration:
 			{
@@ -126,6 +108,4 @@ var protease = function protease( entity ){
 	return chain;
 };
 
-if( typeof module != "undefined" && typeof module.exports != "undefined" ){
-	module.exports = protease;
-}
+module.exports = protease;
