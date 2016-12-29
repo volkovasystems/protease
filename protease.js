@@ -34,6 +34,9 @@
 			"file": "protease.js",
 			"module": "protease",
 			"author": "Richeve S. Bebedor",
+			"contributors": [
+				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
+			],
 			"eMail": "richeve.bebedor@gmail.com",
 			"repository": "https://github.com/volkovasystems/protease.git",
 			"test": "protease-test.js",
