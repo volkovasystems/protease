@@ -1,10 +1,13 @@
 {
   "name": "protease",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Prototype chain with lookup.",
   "main": "protease.js",
+  "support": "protease.support.js",
+  "deploy": "protease.deploy.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel protease.js -o protease.support.js && webpack",
+    "test": "mocha protease-test.js"
   },
   "repository": {
     "type": "git",
@@ -16,14 +19,26 @@
     "protease"
   ],
   "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+  "contributors": [
+    "John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/volkovasystems/protease/issues"
   },
   "homepage": "https://github.com/volkovasystems/protease#readme",
   "dependencies": {
-    "falzy": "^0.5.0",
-    "harden": "^0.7.0",
-    "protype": "^0.4.0"
+    "babel-runtime": "^6.20.0",
+    "falzy": "^0.7.0",
+    "harden": "^0.12.0",
+    "protype": "^0.7.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-latest": "^6.16.0",
+    "source-map-loader": "^0.1.5",
+    "webpack": "^1.14.0"
   }
 }
