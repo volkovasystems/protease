@@ -102,6 +102,15 @@ const protease = function protease( entity ){
 	while( prototype = Object.getPrototypeOf( prototype ) ){
 		name = prototype.constructor.name;
 
+		/*;
+			@note:
+				Discard root of the chain.
+			@end-note
+		*/
+		if( name === "Function" || name === "Object" ){
+			continue;
+		}
+
 		if( !( name in chain ) ){
 			chain.push( prototype );
 			chain.harden( name, prototype );
