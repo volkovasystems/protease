@@ -1,10 +1,11 @@
 {
   "name": "protease",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Prototype chain with lookup.",
   "main": "protease.js",
   "support": "protease.support.js",
   "deploy": "protease.deploy.js",
+  "browser": "protease.deploy.js",
   "scripts": {
     "build": "babel protease.js -o protease.support.js && webpack",
     "test": "mocha protease-test.js"
@@ -29,9 +30,9 @@
   "homepage": "https://github.com/volkovasystems/protease#readme",
   "dependencies": {
     "babel-runtime": "^6.22.0",
-    "falzy": "^0.9.0",
-    "harden": "^0.13.0",
-    "protype": "^0.10.0"
+    "falzy": "^0.10.0",
+    "harden": "^0.14.0",
+    "protype": "^0.11.0"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
@@ -39,6 +40,6 @@
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-latest": "^6.22.0",
     "source-map-loader": "^0.1.6",
-    "webpack": "^1.14.0"
+    "webpack": "^2.2.1"
   }
 }
