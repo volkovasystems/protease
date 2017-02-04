@@ -61,6 +61,9 @@ const falzy = require( "falzy" );
 const harden = require( "harden" );
 const protype = require( "protype" );
 
+const FUNCTION_CLASS = "Function";
+const OBJECT_CLASS = "Object";
+
 const protease = function protease( entity ){
 	/*;
 		@meta-configuration:
@@ -97,6 +100,10 @@ const protease = function protease( entity ){
 		throw new Error( "cannot extract initial prototype" );
 	}
 
+	if( name === FUNCTION_CLASS || name === OBJECT_CLASS ){
+		return [ ];
+	}
+
 	let chain = harden( name, prototype, [ prototype ] );
 
 	while( prototype = Object.getPrototypeOf( prototype ) ){
@@ -107,7 +114,7 @@ const protease = function protease( entity ){
 				Discard root of the chain.
 			@end-note
 		*/
-		if( name === "Function" || name === "Object" ){
+		if( name === FUNCTION_CLASS || name === OBJECT_CLASS ){
 			continue;
 		}
 
