@@ -59,6 +59,7 @@
 
 const falzy = require( "falzy" );
 const harden = require( "harden" );
+const kein = require( "kein" );
 const protype = require( "protype" );
 
 const FUNCTION_CLASS = "Function";
@@ -76,18 +77,18 @@ const protease = function protease( entity ){
 		@end-meta-configuration
 	*/
 
-	let entityType = protype( entity );
-	if( !entityType.OBJECT && !entityType.FUNCTION ){
+	let type = protype( entity );
+	if( !type.OBJECT && !type.FUNCTION ){
 		throw new Error( "invalid entity" );
 	}
 
 	let name = "";
 	let prototype = null;
-	if( entityType.FUNCTION ){
+	if( type.FUNCTION ){
 		name = entity.name;
 		prototype = entity.prototype;
 
-	}else if( entityType.OBJECT ){
+	}else if( type.OBJECT ){
 		name = entity.constructor.name;
 		prototype = Object.getPrototypeOf( entity );
 	}
@@ -118,7 +119,7 @@ const protease = function protease( entity ){
 			continue;
 		}
 
-		if( !( name in chain ) ){
+		if( !kein( chain, name ) ){
 			chain.push( prototype );
 			chain.harden( name, prototype );
 		}

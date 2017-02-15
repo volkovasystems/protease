@@ -2,20 +2,6 @@
 
 const protease = require( "./protease.js" );
 
-var Compute = function Compute( ){ };
+console.log( protease( RegExp ) );
 
-Compute.prototype.resolve = function resolve( option, callback ){
-	/*;
-		@meta-configuration:
-			{
-				"option:required": "object",
-				"callback:required": "function"
-			}
-		@end-meta-configuration
-	*/
-
-	option = option || { };
-
-};
-
-console.log( protease( Compute ) );
+//console.log( require( "util" ).inspect( protease( Array ), { "showHidden": true } ) );
