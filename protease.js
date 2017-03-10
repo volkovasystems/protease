@@ -119,7 +119,7 @@ const protease = function protease( entity ){
 			continue;
 		}
 
-		if( !kein( chain, name ) ){
+		if( !kein( name, chain ) ){
 			chain.push( prototype );
 			chain.harden( name, prototype );
 		}
