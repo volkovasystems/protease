@@ -52,6 +52,7 @@
 		{
 			"falzy": "falzy",
 			"harden": "harden",
+			"kein": "kein",
 			"protype": "protype"
 		}
 	@end-include
@@ -121,7 +122,7 @@ const protease = function protease( entity ){
 
 		if( !kein( name, chain ) ){
 			chain.push( prototype );
-			chain.harden( name, prototype );
+			harden( name, prototype, chain );
 		}
 	}
 
