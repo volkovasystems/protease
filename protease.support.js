@@ -46,12 +46,16 @@
               
               	@module-documentation:
               		Prototype chain with lookup.
+              
+              		This will disregard the root chain Function and Object class prototype since
+              			we don't want to mess with those.
               	@end-module-documentation
               
               	@include:
               		{
               			"falzy": "falzy",
-              			"harden": "harden",
+              			"fname": "fname",
+              			"impel": "impel",
               			"kein": "kein",
               			"protype": "protype"
               		}
@@ -59,7 +63,8 @@
               */var _getPrototypeOf = require("babel-runtime/core-js/object/get-prototype-of");var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var falzy = require("falzy");
-var harden = require("harden");
+var fname = require("fname");
+var impel = require("impel");
 var kein = require("kein");
 var protype = require("protype");
 
@@ -78,51 +83,47 @@ var protease = function protease(entity) {
                                           	@end-meta-configuration
                                           */
 
-	var type = protype(entity);
-	if (!type.OBJECT && !type.FUNCTION) {
+	if (protype(entity, OBJECT)) {
+		entity = entity.constructor;
+	}
+
+	if (!protype(entity, FUNCTION)) {
 		throw new Error("invalid entity");
 	}
 
-	var name = "";
-	var prototype = null;
-	if (type.FUNCTION) {
-		name = entity.name;
-		prototype = entity.prototype;
+	var name = fname(entity);
+	var prototype = entity.prototype;
 
-	} else if (type.OBJECT) {
-		name = entity.constructor.name;
-		prototype = (0, _getPrototypeOf2.default)(entity);
-	}
-
-	if (falzy(name)) {
-		throw new Error("cannot extract initial chain name");
-	}
-
-	if (!protype(prototype, OBJECT)) {
-		throw new Error("cannot extract initial prototype");
-	}
-
-	if (name === FUNCTION_CLASS || name === OBJECT_CLASS) {
+	/*;
+                                   	@note:
+                                   		Possibility that the entity is anonymous therefore the prototype chain
+                                   			would be function and object so there's no need to evaluate.
+                                   	@end-note
+                                   */
+	if (falzy(name) || falzy(prototype) ||
+	name === FUNCTION_CLASS || name === OBJECT_CLASS)
+	{
 		return [];
 	}
 
-	var chain = harden(name, prototype, [prototype]);
+	var chain = impel(name, prototype, [prototype]);
 
 	while (prototype = (0, _getPrototypeOf2.default)(prototype)) {
-		name = prototype.constructor.name;
+		name = fname(prototype.constructor);
 
 		/*;
-                                     	@note:
-                                     		Discard root of the chain.
-                                     	@end-note
-                                     */
-		if (name === FUNCTION_CLASS || name === OBJECT_CLASS) {
+                                       	@note:
+                                       		Discard root of the chain.
+                                       		The root of the chain can be the Function or Object class.
+                                       	@end-note
+                                       */
+		if (falzy(name) || name === FUNCTION_CLASS || name === OBJECT_CLASS) {
 			continue;
 		}
 
 		if (!kein(name, chain)) {
 			chain.push(prototype);
-			harden(name, prototype, chain);
+			impel(name, prototype, chain);
 		}
 	}
 

@@ -1,7 +1,8 @@
-"use strict";
 
+const assert = require( "assert" );
 const protease = require( "./protease.js" );
 
-console.log( protease( RegExp ) );
+assert.deepEqual( protease( RegExp ), [ RegExp.prototype ], "should have RegExp prototype" );
+assert.deepEqual( protease( Function ), [ ], "should be empty" );
 
-//console.log( require( "util" ).inspect( protease( Array ), { "showHidden": true } ) );
+console.log( "ok" );

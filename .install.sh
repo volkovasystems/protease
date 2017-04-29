@@ -1,7 +1,8 @@
 yarn add \
 babel-runtime \
 falzy \
-harden \
+fname \
+impel \
 kein \
 protype \
 --save && \
@@ -15,7 +16,8 @@ webpack \
 --dev && \
 bower install \
 falzy \
-harden \
+fname \
+impel \
 kein \
 protype \
 --save \
