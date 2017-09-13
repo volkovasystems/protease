@@ -1,0 +1,116 @@
+{
+	"state": {
+		"passed": 2,
+		"failed": 0,
+		"skipped": 0
+	},
+	"start": "2017-09-13T03:58:06.541Z",
+	"end": "2017-09-13T03:59:16.800Z",
+	"capabilities": {
+		"browserName": "chrome",
+		"chromeOptions": {
+			"args": [
+				"disable-gpu",
+				"headless"
+			]
+		},
+		"proxy": null
+	},
+	"host": "127.0.0.1",
+	"port": 4444,
+	"baseUrl": "http://localhost",
+	"framework": "mocha",
+	"mochaOpts": {
+		"timeout": 10000,
+		"ui": "bdd"
+	},
+	"suites": [
+		{
+			"name": "protease",
+			"duration": 0,
+			"start": "2017-09-13T03:59:16.455Z",
+			"tests": [],
+			"hooks": []
+		},
+		{
+			"name": "protease",
+			"duration": 160,
+			"start": "2017-09-13T03:59:16.455Z",
+			"end": "2017-09-13T03:59:16.615Z",
+			"tests": [],
+			"hooks": [
+				{
+					"start": "2017-09-13T03:59:16.457Z",
+					"end": "2017-09-13T03:59:16.457Z",
+					"duration": 0,
+					"title": "\"before each\" hook",
+					"associatedSuite": "protease",
+					"associatedTest": "should be equal to [ Array.prototype ]"
+				},
+				{
+					"start": "2017-09-13T03:59:16.562Z",
+					"end": "2017-09-13T03:59:16.563Z",
+					"duration": 1,
+					"title": "\"after each\" hook",
+					"associatedSuite": "protease",
+					"associatedTest": "should be equal to [ Array.prototype ]"
+				},
+				{
+					"start": "2017-09-13T03:59:16.563Z",
+					"end": "2017-09-13T03:59:16.564Z",
+					"duration": 1,
+					"title": "\"before each\" hook",
+					"associatedSuite": "protease",
+					"associatedTest": "should be equal to empty array"
+				},
+				{
+					"start": "2017-09-13T03:59:16.614Z",
+					"end": "2017-09-13T03:59:16.615Z",
+					"duration": 1,
+					"title": "\"after each\" hook",
+					"associatedSuite": "protease",
+					"associatedTest": "should be equal to empty array"
+				},
+				{
+					"start": "2017-09-13T03:59:16.615Z",
+					"end": "2017-09-13T03:59:16.615Z",
+					"duration": 0,
+					"title": "\"after all\" hook",
+					"associatedSuite": "protease"
+				}
+			]
+		},
+		{
+			"name": "`protease( Array )`",
+			"duration": 107,
+			"start": "2017-09-13T03:59:16.456Z",
+			"end": "2017-09-13T03:59:16.563Z",
+			"tests": [
+				{
+					"name": "should be equal to [ Array.prototype ]",
+					"start": "2017-09-13T03:59:16.457Z",
+					"end": "2017-09-13T03:59:16.562Z",
+					"duration": 105,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		},
+		{
+			"name": "`protease( { 'name': 'hello' } )`",
+			"duration": 52,
+			"start": "2017-09-13T03:59:16.563Z",
+			"end": "2017-09-13T03:59:16.615Z",
+			"tests": [
+				{
+					"name": "should be equal to empty array",
+					"start": "2017-09-13T03:59:16.563Z",
+					"end": "2017-09-13T03:59:16.614Z",
+					"duration": 51,
+					"state": "pass"
+				}
+			],
+			"hooks": []
+		}
+	]
+}

@@ -1,16 +1,46 @@
 {
-  "stats": {
-    "suites": 0,
-    "tests": 0,
-    "passes": 0,
-    "pending": 0,
-    "failures": 0,
-    "start": "2017-09-11T19:34:25.829Z",
-    "end": "2017-09-11T19:34:25.829Z",
-    "duration": 0
-  },
-  "tests": [],
-  "pending": [],
-  "failures": [],
-  "passes": []
+	"stats": {
+		"suites": 3,
+		"tests": 2,
+		"passes": 2,
+		"pending": 0,
+		"failures": 0,
+		"start": "2017-09-13T03:58:05.334Z",
+		"end": "2017-09-13T03:58:05.342Z",
+		"duration": 8
+	},
+	"tests": [
+		{
+			"title": "should be equal to [ Array.prototype ]",
+			"fullTitle": "protease `protease( Array )` should be equal to [ Array.prototype ]",
+			"duration": 3,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to empty array",
+			"fullTitle": "protease `protease( { 'name': 'hello' } )` should be equal to empty array",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		}
+	],
+	"pending": [],
+	"failures": [],
+	"passes": [
+		{
+			"title": "should be equal to [ Array.prototype ]",
+			"fullTitle": "protease `protease( Array )` should be equal to [ Array.prototype ]",
+			"duration": 3,
+			"currentRetry": 0,
+			"err": {}
+		},
+		{
+			"title": "should be equal to empty array",
+			"fullTitle": "protease `protease( { 'name': 'hello' } )` should be equal to empty array",
+			"duration": 0,
+			"currentRetry": 0,
+			"err": {}
+		}
+	]
 }

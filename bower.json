@@ -21,5 +21,11 @@
 		"bower_components",
 		"test",
 		"tests"
-	]
+	],
+	"dependencies": {
+		"falzy": "^0.23.0",
+		"fname": "^0.13.0",
+		"impel": "^0.18.0",
+		"kein": "^0.30.0"
+	}
 }

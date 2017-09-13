@@ -45,13 +45,13 @@
 
 	@include:
 		{
-			"assert": "should",
+			"assert": "should/as-function",
 			"protease": "protease"
 		}
 	@end-include
 */
 
-const assert = require( "should" );
+const assert = require( "should/as-function" );
 
 //: @server:
 const protease = require( "./protease.js" );
@@ -63,11 +63,21 @@ const protease = require( "./protease.js" );
 
 
 //: @server:
-
 describe( "protease", ( ) => {
 
-} );
+	describe( "`protease( Array )`", ( ) => {
+		it( "should be equal to [ Array.prototype ]", ( ) => {
+			assert.deepEqual( protease( Array ), [ Array.prototype ] );
+		} );
+	} );
 
+	describe( "`protease( { 'name': 'hello' } )`", ( ) => {
+		it( "should be equal to empty array", ( ) => {
+			assert.deepEqual( protease( { "name": "hello" } ), [ ] );
+		} );
+	} );
+
+} );
 //: @end-server
 
 
