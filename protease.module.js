@@ -56,8 +56,7 @@
 			"falzy": "falzy",
 			"fname": "fname",
 			"impel": "impel",
-			"kein": "kein",
-			"protype": "protype"
+			"kein": "kein"
 		}
 	@end-include
 */
@@ -66,7 +65,6 @@ const falzy = require( "falzy" );
 const fname = require( "fname" );
 const impel = require( "impel" );
 const kein = require( "kein" );
-const protype = require( "protype" );
 
 const FUNCTION_CLASS = "Function";
 const OBJECT_CLASS = "Object";
@@ -83,11 +81,11 @@ const protease = function protease( entity ){
 		@end-meta-configuration
 	*/
 
-	if( protype( entity, OBJECT ) ){
+	if( typeof entity == "object" ){
 		entity = entity.constructor;
 	}
 
-	if( !protype( entity, FUNCTION ) ){
+	if( typeof entity != "function" ){
 		throw new Error( "invalid entity" );
 	}
 

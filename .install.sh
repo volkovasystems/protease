@@ -4,7 +4,6 @@ falzy \
 fname \
 impel \
 kein \
-protype \
 --save && \
 yarn add \
 babel-cli \
@@ -35,6 +34,5 @@ falzy \
 fname \
 impel \
 kein \
-protype \
 --save \
 --force-latest
