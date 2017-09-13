@@ -45,13 +45,13 @@
 
 	@include:
 		{
-			"assert": "should",
+			"assert": "should/as-function",
 			"protease": "protease"
 		}
 	@end-include
 */
 
-const assert = require( "should" );
+const assert = require( "should/as-function" );
 
 //: @server:
 const protease = require( "./protease.js" );
@@ -67,27 +67,79 @@ const path = require( "path" );
 
 
 //: @server:
-
 describe( "protease", ( ) => {
 
-} );
+	describe( "`protease( Array )`", ( ) => {
+		it( "should be equal to [ Array.prototype ]", ( ) => {
+			assert.deepEqual( protease( Array ), [ Array.prototype ] );
+		} );
+	} );
 
+	describe( "`protease( { 'name': 'hello' } )`", ( ) => {
+		it( "should be equal to empty array", ( ) => {
+			assert.deepEqual( protease( { "name": "hello" } ), [ ] );
+		} );
+	} );
+
+} );
 //: @end-server
 
 
 //: @client:
-
 describe( "protease", ( ) => {
 
-} );
+	describe( "`protease( Array )`", ( ) => {
+		it( "should be equal to [ Array.prototype ]", ( ) => {
+			assert.deepEqual( protease( Array ), [ Array.prototype ] );
+		} );
+	} );
 
+	describe( "`protease( { 'name': 'hello' } )`", ( ) => {
+		it( "should be equal to empty array", ( ) => {
+			assert.deepEqual( protease( { "name": "hello" } ), [ ] );
+		} );
+	} );
+
+} );
 //: @end-client
 
 
 //: @bridge:
-
 describe( "protease", ( ) => {
 
-} );
+	let bridgeURL = `file://${ path.resolve( __dirname, "bridge.html" ) }`;
 
+	describe( "`protease( Array )`", ( ) => {
+		it( "should be equal to [ Array.prototype ]", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return protease( Array ).length == 1;
+				}
+
+			).value;
+			//: @end-ignore
+			
+			assert.equal( result, true );
+		} );
+	} );
+
+	describe( "`protease( { 'name': 'hello' } )`", ( ) => {
+		it( "should be equal to empty array", ( ) => {
+			//: @ignore:
+			let result = browser.url( bridgeURL ).execute(
+
+				function( ){
+					return JSON.stringify( protease( { "name": "hello" } ) );
+				}
+
+			).value;
+			//: @end-ignore
+
+			assert.deepEqual( JSON.parse( result ), [ ] );
+		} );
+	} );
+
+} );
 //: @end-bridge
